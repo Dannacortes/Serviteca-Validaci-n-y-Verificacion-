@@ -13,7 +13,7 @@ export class DataService {
     ordenes: any[] = [];
 
     obtenerClientes(){
-        return this.httpClient.get<Cliente[]>('https://serviteca-ce9b1-default-rtdb.firebaseio.com/clientes.json');
+        return this.httpClient.get<Cliente[]>('https://serviteca-9b8b4-default-rtdb.firebaseio.com/clientes.json');
     }
 
     setearDatosCliente(clientes: Cliente){
@@ -23,19 +23,19 @@ export class DataService {
                     this.clientes.push(clientes)
                     this.guardarClientes(clientesGet)
                 }
-            ); 
+            );
     }
 
-    guardarClientes(clientes: Cliente[]) {           
-        this.httpClient.put('https://serviteca-ce9b1-default-rtdb.firebaseio.com/clientes.json', this.clientes)
+    guardarClientes(clientes: Cliente[]) {
+        this.httpClient.put('https://serviteca-9b8b4-default-rtdb.firebaseio.com/.json', this.clientes)
             .subscribe(
                 response => console.log("resultado de guardar personas: " + response),
-                error => console.error("error guardar personas: " + error)            
+                error => console.error("error guardar personas: " + error)
             );
     }
 
     obtenerVehiculos(){
-        return this.httpClient.get<Vehiculo[]>('https://serviteca-ce9b1-default-rtdb.firebaseio.com/vehiculos.json');
+        return this.httpClient.get<Vehiculo[]>('https://serviteca-9b8b4-default-rtdb.firebaseio.com/vehiculos.json');
     }
 
     setearDatosVehiculo(vehiculos: Vehiculo){
@@ -43,25 +43,25 @@ export class DataService {
             .subscribe(
                 (vehiculosGet: Vehiculo[]=[]) => { this.vehiculos = vehiculosGet;
                     this.vehiculos.push(vehiculos)
-                    this.guardarVehiculos(vehiculosGet) 
+                    this.guardarVehiculos(vehiculosGet)
                 }
-            ); 
+            );
     }
 
     guardarVehiculos(vehiculos: Vehiculo[]) {
-        this.httpClient.put('https://serviteca-ce9b1-default-rtdb.firebaseio.com/vehiculos.json', vehiculos)
+        this.httpClient.put('https://serviteca-9b8b4-default-rtdb.firebaseio.com/vehiculos.json', vehiculos)
             .subscribe(
                 response => console.log("resultado de guardar personas: " + response),
-                error => console.error("error guardar personas: " + error)            
+                error => console.error("error guardar personas: " + error)
             );
     }
 
     obtenerServicios(){
-        return this.httpClient.get<any>('https://serviteca-ce9b1-default-rtdb.firebaseio.com/servicios.json');        
+        return this.httpClient.get<any>('https://serviteca-9b8b4-default-rtdb.firebaseio.com/servicios.json');
     }
 
     obtenerOrdenes(){
-        return this.httpClient.get<any>('https://serviteca-ce9b1-default-rtdb.firebaseio.com/ordenes.json');            
+        return this.httpClient.get<any>('https://serviteca-9b8b4-default-rtdb.firebaseio.com/ordenes.json');
     }
 
     setearOrdenes(ordenes: any){
@@ -69,21 +69,21 @@ export class DataService {
             .subscribe(
                 (ordenesGet: any[] = []) => { this.ordenes = ordenesGet;
                     this.ordenes.push(...ordenes)
-                    this.guardarOrden(ordenesGet)    
+                    this.guardarOrden(ordenesGet)
                 }
             );
 
-    }    
+    }
 
     guardarOrden(orden: any){
-        this.httpClient.put('https://serviteca-ce9b1-default-rtdb.firebaseio.com/ordenes.json', orden)
+        this.httpClient.put('https://serviteca-9b8b4-default-rtdb.firebaseio.com/ordenes.json', orden)
             .subscribe(
                 response => console.log("resultado de guardar personas: " + response),
-                error => console.error("error guardar personas: " + error)            
+                error => console.error("error guardar personas: " + error)
             );
     }
 
-    
-  
+
+
 
 }

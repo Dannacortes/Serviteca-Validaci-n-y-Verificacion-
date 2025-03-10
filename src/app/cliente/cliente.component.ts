@@ -15,8 +15,8 @@ export class ClienteComponent {
   fechaNacimiento: Date = new Date();
 
   constructor(private clientesService: ClientesService,
-    ){} 
-  
+    ){}
+
 
   guardarCliente(){
     let cliente = new Cliente(this.cedula, this.nombres, this.apellidos, this.fechaNacimiento);
